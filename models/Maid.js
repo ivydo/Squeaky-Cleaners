@@ -19,13 +19,14 @@ Maid.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        review_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'review',
-                key: 'id'
-            }
-        }
+        // review_id:  {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: true,
+        //     references: {
+        //         model: 'review',
+        //         key: 'id'
+        //     }
+        // }
     },
     {
         sequelize,
