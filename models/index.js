@@ -10,12 +10,17 @@ User.hasMany(Review, {
     foreignKey: 'user_id'
 });
 
-// Maid.belongsToMany(Review, {
-//     through: User,
-//     as: 'review_id',
-//     foreignKey: 'maid_id'
-// });
+Maid.hasMany(Review, {
+    foreignKey: 'maid_id'
+});
 
+Review.belongsTo(User, {
+    foreignKey: 'review_id'
+});
+
+Review.belongsTo(Maid, {
+    foreignKey: 'review_id'
+});
 
 
 //DO NOT USE THIS ASSOCIATION GIVE CYCLINIC DEPENDENCIES
