@@ -2,6 +2,7 @@
 const User = require('./User');
 const Review = require('./Review');
 const Maid = require('./Maid');
+const Schedule = require('./Schedule');
 
 
 //create associations
@@ -37,4 +38,4 @@ Review.belongsTo(Maid, {
 // })
 
 
-module.exports = { User, Review, Maid };
+module.exports = { User, Review, Maid, Schedule };

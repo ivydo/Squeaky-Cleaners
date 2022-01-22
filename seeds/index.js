@@ -4,6 +4,8 @@ const seedMaids = require('./maid-seeds');
 
 const sequelize = require('../config/connection');
 
+
+//do not alter order seedReviews() must go last due to dependencies on seedMaids()
 const seedAll = async () => {
     await sequelize.sync({ force: true });
     console.log('--------------');
@@ -11,7 +13,7 @@ const seedAll = async () => {
     await seedUsers();
     console.log('--------------');
 
-        await seedMaids();
+    await seedMaids();
     console.log('--------------');
 
     await seedReviews();
