@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Maid, User, Review, } = require('../../models');
+const { Maid, Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get all maids
@@ -12,20 +12,20 @@ router.get('/', (req, res) => {
         'name',
         'schedule'
       ],
-      order: [['created_at', 'DESC']],
+      //order: [['created_at', 'DESC']],
       include: [
         {
           model: Review,
           attributes: ['id', 'review_text', 'maid_id', 'user_id'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
+          // include: {
+          //   model: User,
+          //   attributes: ['username']
+          // }
         },
-        {
-          model: User,
-          attributes: ['username']
-        }
+        // {
+        //   model: User,
+        //   attributes: ['username']
+        // }
       ]
     })
       .then(dbMaidData => res.json(dbMaidData))
@@ -42,22 +42,22 @@ router.get('/', (req, res) => {
       },
       attributes: [
         'id',
-        'title',
-        'created_at'
+        'name',
+        'schedule'
       ],
       include: [
         {
           model: Review,
           attributes: ['id', 'review_text', 'maid_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
+          // include: {
+          //   model: User,
+          //   attributes: ['username']
+          // }
         },
-        {
-          model: User,
-          attributes: ['username']
-        }
+        // {
+        //   model: User,
+        //   attributes: ['username']
+        // }
       ]
     })
       .then(dbMaidData => {
