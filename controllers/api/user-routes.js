@@ -19,17 +19,20 @@ router.get('/', (req, res) => {
       where: {
         id: req.params.id
       },
-      //include: [
-        //{
-          //model: Maid,
-          //attributes: ['id', 'title', 'created_at']
-        //},
-        // {
-        //   model: Review,
-        //   attributes: ['id', 'review_text', 'created_at'],
-          
-        // }
-      //]
+      // include: [
+      //   {
+      //     model: Maid,
+      //     attributes: ['id', 'title', 'created_at']
+      //   },
+      //   {
+      //     model: Review,
+      //     attributes: ['id', 'review_text', 'created_at'],
+      //     include: {
+      //       model: Review,
+      //       attributes: ['title']
+      //     }
+      //   }
+      // ]
     })
       .then(dbUserData => {
         if (!dbUserData) {
@@ -68,34 +71,34 @@ router.get('/', (req, res) => {
   });
 
 
-router.post('/login', (req, res) => {
-  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
-  User.findOne({
+  router.post('/login', (req, res) => {
+    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+    User.findOne({
       where: {
-      email: req.body.email
+        email: req.body.email
       }
-  }).then(dbUserData => {
+    }).then(dbUserData => {
       if (!dbUserData) {
-      res.status(400).json({ message: 'No user with that email address!' });
-      return;
+        res.status(400).json({ message: 'No user with that email address!' });
+        return;
       }
-
-      const validPassword = dbUserData.checkPassword(req.body.password);
-
-      if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect password!' });
-      return;
-      }
-
-      req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
   
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+      const validPassword = dbUserData.checkPassword(req.body.password);
+  
+      if (!validPassword) {
+        res.status(400).json({ message: 'Incorrect password!' });
+        return;
+      }
+  
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+    
+        res.json({ user: dbUserData, message: 'You are now logged in!' });
       });
+    });
   });
-});
 
 
   router.post('/logout', (req, res) => {
