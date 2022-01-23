@@ -6,17 +6,17 @@ const withAuth = require('../../utils/auth');
 // Get all maids
 router.get('/', (req, res) => {
     console.log('======================');
-    Post.findAll({
+    Maid.findAll({
       attributes: [
         'id',
-        'title',
-        'created_at'
+        'name',
+        'schedule'
       ],
       order: [['created_at', 'DESC']],
       include: [
         {
           model: Review,
-          attributes: ['id', 'review_text', 'maid_id', 'user_id', 'created_at'],
+          attributes: ['id', 'review_text', 'maid_id', 'user_id'],
           include: {
             model: User,
             attributes: ['username']
@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
   });
   
   router.get('/:id', (req, res) => {
-    Post.findOne({
+    Maid.findOne({
       where: {
         id: req.params.id
       },
@@ -47,7 +47,7 @@ router.get('/', (req, res) => {
       ],
       include: [
         {
-          model: Comment,
+          model: Review,
           attributes: ['id', 'review_text', 'maid_id', 'user_id', 'created_at'],
           include: {
             model: User,

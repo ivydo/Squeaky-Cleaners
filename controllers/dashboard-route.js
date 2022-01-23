@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Maid, User, Review } = require('../models');
-const withAuth = require('../utils/auth');
+// const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Maid.findAll({
       where: {
         // use the ID from the session
@@ -11,13 +11,13 @@ router.get('/', withAuth, (req, res) => {
       },
       attributes: [
         'id',
-        'title',
-        'created_at',
+        'name',
+        'schedule',
       ],
       include: [
         {
           model: Review,
-          attributes: ['id', 'review_text', 'maid_id', 'user_id', 'created_at'],
+          attributes: ['id', 'review_text', 'maid_id', 'user_id',],
           include: {
             model: User,
             attributes: ['username']
@@ -39,3 +39,6 @@ router.get('/', withAuth, (req, res) => {
         res.status(500).json(err);
       });
   });
+
+
+  module.exports = router;
