@@ -4,10 +4,10 @@ const sequelize = require('../config/connection');
 
 //create User model
 class User extends Model {
-    //method to check password
-    //checkPassword(loginPw){
-        //return.bcrypt.compareSync(loginPw, this.password);
-    //}
+    // method to check password
+    checkPassword(loginPw){
+        return bcrypt.compareSync(loginPw, this.password);
+    }
 }
 
 //create columns for User model
@@ -53,18 +53,18 @@ User.init(
         },
     //enter hooks: {}  once controller files complete
     {
-    //hooks: {
-        // set up beforeCreate lifecycle "hook" functionality
-        // async beforeCreate(newUserData) {
-        //     newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        //     return newUserData;
-        // },
-
-        // async beforeUpdate(updatedUserData) {
-        //     updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-        //     return updatedUserData;
-        // }
-        // },
+        hooks: {
+            // set up beforeCreate lifecycle "hook" functionality
+            async beforeCreate(newUserData) {
+              newUserData.password = await bcrypt.hash(newUserData.password, 10);
+              return newUserData;
+            },
+            // set up beforeUpdate lifecycle "hook" functionality
+            async beforeUpdate(updatedUserData) {
+              updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+              return updatedUserData;
+            }
+          },
     
         sequelize,
         freezeTableName: true,

@@ -14,19 +14,20 @@ router.get('/', (req, res) => {
         'name',
         'schedule',
       ],
+
       include: [
         {
           model: Review,
-          attributes: ['id', 'review_text', 'maid_id', 'user_id',],
+          attributes: ['id', 'review_text'],
           include: {
             model: User,
             attributes: ['username']
           }
         },
-        {
-          model: User,
-          attributes: ['username']
-        }
+        // {
+        //   model: User,
+        //   attributes: ['username']
+        // }
       ]
     })
       .then(dbMaidData => {
@@ -37,7 +38,7 @@ router.get('/', (req, res) => {
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
-      });
+      })
   });
 
 

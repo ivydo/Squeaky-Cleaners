@@ -19,20 +19,20 @@ router.get('/', (req, res) => {
       where: {
         id: req.params.id
       },
-      include: [
-        {
-          model: Maid,
-          attributes: ['id', 'title', 'created_at']
-        },
-        {
-          model: Review,
-          attributes: ['id', 'review_text', 'created_at'],
-          include: {
-            model: Post,
-            attributes: ['title']
-          }
-        }
-      ]
+      // include: [
+      //   {
+      //     model: Maid,
+      //     attributes: ['id', 'title', 'created_at']
+      //   },
+      //   {
+      //     model: Review,
+      //     attributes: ['id', 'review_text', 'created_at'],
+      //     include: {
+      //       model: Review,
+      //       attributes: ['title']
+      //     }
+      //   }
+      // ]
     })
       .then(dbUserData => {
         if (!dbUserData) {
