@@ -37,18 +37,6 @@ User.init(
             validate: {
                 len: [4]
             }
-            },
-            apartment: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-            },
-            floor: {
-                type: DataTypes.INTEGER,
-                allowNull: false
-            },
-            frequency: {
-            type: DataTypes.STRING,
-            allowNull: false
             }
         },
     //enter hooks: {}  once controller files complete
