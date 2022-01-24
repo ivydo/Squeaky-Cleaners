@@ -5,10 +5,10 @@ const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Maid.findAll({
-      where: {
-        // use the ID from the session
-        maid_id: req.session.maid_id
-      },
+      // where: {
+      //   // use the ID from the session
+      //   maid_id: req.session.maid_id
+      // },
       attributes: [
         'id',
         'name',
@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
       .then(dbMaidData => {
         // serialize data before passing to template
         const maids = dbMaidData.map(maid => maid.get({ plain: true }));
-        res.render('dashboard', { reviews, loggedIn: true });
+        res.render('dashboard', { maids, loggedIn: true });
       })
       .catch(err => {
         console.log(err);
