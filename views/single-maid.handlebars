@@ -1,0 +1,27 @@
+<ol class="maid-list">
+    {{#each maids as |maid|}}
+    <li>
+        {{> maid-info maid }}
+    </li>
+    {{/each}}
+</ol>
+
+{{#if loggedIn}}
+<form class="review-form">
+    <div>
+        <textarea name="review-body"></textarea>
+    </div>
+
+    <div>
+        <button type="submit">Add Review</button>
+    </div>
+</form>
+{{/if}}
+
+{{> reviews maid.review}}
+
+</article>
+
+{{#if loggedIn}}
+<script src="/javascript/review.js"></script>
+{{/if}}
