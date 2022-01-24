@@ -1,5 +1,5 @@
 {{!-- route maid info to here; will follow template from homepage Module 14 on how it lists all posts from all users --}}
-{{#if loggedIn}}
+
 <ol class="maid-list">
   {{#each maids as |maid|}}
   <li>
@@ -7,7 +7,7 @@
   </li>
   {{/each}}
 </ol>
-
+{{#if loggedIn}}
 {{!-- List reviews left by loggedIn user --}}
   <h2>Your Reviews</h2>
   <ol>
