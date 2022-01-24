@@ -5,10 +5,10 @@ const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Maid.findAll({
-      where: {
-        // use the ID from the session
-        user_id: req.session.user_id
-      },
+    //   where: {
+    //     // use the ID from the session
+    //     user_id: req.session.user_id
+    //   },
       attributes: [
         'id',
         'name',

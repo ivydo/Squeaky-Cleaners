@@ -21,7 +21,7 @@ User.init(
             },
             username: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
             },
             email: {
             type: DataTypes.STRING,
@@ -40,15 +40,15 @@ User.init(
             },
             apartment: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
             },
             floor: {
                 type: DataTypes.INTEGER,
-                allowNull: false
+                allowNull: true
             },
             frequency: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
             }
         },
     //enter hooks: {}  once controller files complete
