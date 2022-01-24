@@ -1,20 +1,14 @@
-<section>
-  <h2>Create New Review</h2>
+{{!-- route maid info to here; will follow template from homepage Module 14 on how it lists all posts from all users --}}
+{{#if loggedIn}}
+<ol class="maid-list">
+  {{#each maids as |maid|}}
+  <li>
+    {{> maid-info maid }}
+  </li>
+  {{/each}}
+</ol>
 
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
-    </div>
-    <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
-    </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
-</section>
-{{#if reviews.length}}
-<section>
+{{!-- List reviews left by loggedIn user --}}
   <h2>Your Reviews</h2>
   <ol>
     {{#each reviews as |review|}}
@@ -26,4 +20,6 @@
   </ol>
 </section>
 {{/if}}
-<script src="public/javascript/add-review.js"></script>
+<script src="/javascript/add-review.js"></script>
+<script src="/javascript/edit-review.js"></script>
+<script src="/javascript/delete-review.js"></script>
