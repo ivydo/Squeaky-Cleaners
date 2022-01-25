@@ -156,32 +156,13 @@ font-family: 'Ubuntu', sans-serif;
 }
 
   /* footer section */
-
-  .bot-nav {
-    display: flex;
-    justify-content: center;
-    padding: 16px 18px;
-    width: 100%;
-    margin: 10px 0px;
-  }
-  
-  .bot-nav-ul li {
-    padding: 0px 10px;
-    list-style: none;
-    font-size: 16px;
-  }
-  
-  .bot-nav a {
-    text-decoration: none;
-    font-family: "Source Sans Pro";
-  }
-  
   .footer-credits {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
     font-family: "Source Sans Pro";
-    font-size: 16px;
+    font-size: 18px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 10px;
   }
-  

@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
       .then(dbMaidData => {
         // serialize data before passing to template
         const maids = dbMaidData.map(maid => maid.get({ plain: true }));
-        res.render('dashboard', { maids, loggedIn: true });
+        res.render('dashboard', { maids, loggedIn: true, style: "dashboard.css"});
       })
       .catch(err => {
         console.log(err);
