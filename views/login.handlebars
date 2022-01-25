@@ -1,31 +1,48 @@
-<form class="login-form">
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
-  </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-</form>
-<form class="signup-form">
-  <div>
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
-  </div>
-  <div>
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
-  </div>
-  <div>
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
-  </div>
-  <div>
-    <button type="submit">signup</button>
-  </div>
-</form>
-<script src="/javascript/login.js"></script>
+  <body>
+<!-- login image -->
+
+    <!-- login section -->
+    <div class="form-section">
+        <div class="login-section">
+        <div class="form-header"><h2>Welcome Back!</h2></div>
+        <div class="form">
+            <form class="login-form">
+                <div>
+                  <input class="em" type="text" id="email-login" placeholder="email"/>
+                </div>
+                <div>
+                  <input class="pass" type="password" id="password-login" placeholder="password"/>
+                </div>
+                <div>
+                  <button class= "btn" type="submit">login</button>
+                </div>
+            </div>
+              </form>
+              </div>
+    <!-- sign up section -->
+<div class="signup-section">
+    <form class="signup-form">
+        <div class="signup-check"><p>Not a Member? <span class="pink-text">Sign Up</span> to get started.</p></div>
+      <div class="form-header"><h2>Create Account</h2></div>
+      <div>
+        <input class="un" type="text" id="username-signup" placeholder="username"/>
+      </div>
+      <div>
+        <input class="em" type="text" id="email-signup" placeholder="email"/>
+      </div>
+      <div>
+        <input class="pass" type="password" id="password-signup" placeholder="password" />
+      </div>
+      <div>
+        <button class="btn" type="submit">signup</button>
+      </div>
+    </form>
+</div>
+              <script src="/javascript/login.js"></script>
+              
+        
+        <div class="login-image-container">
+        </div>
+    </div>
+  </body>
+</html>

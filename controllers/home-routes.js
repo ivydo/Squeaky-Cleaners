@@ -3,7 +3,9 @@ const sequelize = require('../config/connection');
 
 
 router.get('/', (req, res) => {
-  res.render('homepage'); 
+  res.render('homepage', {
+    style: "./homepage.css"
+  }); 
   });
 
 
@@ -13,7 +15,9 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('login', {
+    style: "login.css"
+  });
 });
 
 module.exports = router;
