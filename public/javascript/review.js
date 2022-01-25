@@ -4,7 +4,7 @@ async function newFormHandler(event) {
     const review_text = document.querySelector('textarea[name="review-body"]').value.trim();
 
     const review_id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
+      window.location.toString().split('/').length
     ];
   
     if (review_text) {
