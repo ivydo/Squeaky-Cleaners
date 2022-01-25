@@ -48,7 +48,7 @@ router.get('/', (req, res) => {
       include: [
         {
           model: Review,
-          attributes: ['id', 'review_text', 'maid_id', 'user_id', 'created_at'],
+          attributes: ['id', 'review_text', 'maid_id', 'user_id'],
           // include: {
           //   model: User,
           //   attributes: ['username']
@@ -65,7 +65,7 @@ router.get('/', (req, res) => {
           res.status(404).json({ message: 'No post found with this id' });
           return;
         }
-        res.json(dbPostData);
+        res.json(dbMaidData);
       })
       .catch(err => {
         console.log(err);
