@@ -8,13 +8,14 @@
   {{/each}}
 </ol>
 {{#if loggedIn}}
+
 {{!-- List reviews left by loggedIn user --}}
   <h2>Your Reviews</h2>
   <ol>
     {{#each reviews as |review|}}
     <li>
       {{> review-info review}}
-      <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review</a>
+      {{!-- <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review</a> --}}
     </li>
     {{/each}}
   </ol>

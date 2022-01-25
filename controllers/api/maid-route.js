@@ -72,6 +72,14 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
       });
   });
+
+  router.get('/maid/:id', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+    res.render('maid/:id');
+  });
   
 
   module.exports = router;
