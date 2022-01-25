@@ -3,7 +3,7 @@ async function newFormHandler(event) {
   
     const title = document.querySelector('input[name="review_text"]').value;
   
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/maids`, {
       method: 'POST',
       body: JSON.stringify({
         review_text      
