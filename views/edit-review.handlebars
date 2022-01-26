@@ -4,7 +4,17 @@
 
     <form class="edit-review-form">
         <div>
-            <input name="review-title type="text">
+            <input name="review-title" type="text" value="{{review.review-title}}" />
+            <span>({{review.review_text}})</span>
         </div>
+        <div>
+            <a href="/review/{{review.id}}">{{review.length}}</a>
+        </div>
+        <button type="submit">Save Review</button>
+        <button type="button" class="delete-review-btn">Delete Review</button>
     </form>
 </article>
+
+<script src="/javascript/edit-review.js"></script>
+<script src="/javascript/delete-review.js"></script>
+<script src="/javascript/review.js"></script>

@@ -85,17 +85,18 @@ router.get('/', (req, res) => {
     Review.findByPk(req.params.id, {
       attributes: [
         'id',
+        'title',
         'review_text',
-        'created_at'
+        //'created_at'
       ],
       include: [
         {
-          model: Review,
-          attributes: ['id', 'title', 'review_text'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
+          model: Maid,
+          attributes: ['id', 'name'],
+          // include: {
+          //   model: User,
+          //   attributes: ['username']
+          // }
         },
       ]
     })

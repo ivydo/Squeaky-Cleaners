@@ -34,7 +34,7 @@ const reviewdata = [
     },
     {
         title: 'Excellent Cleaning',
-        review_text: 'The quality of cleaning is excellent. They are dependable. A morning appointment is very important to me and they always keep that time frame. ',
+        review_text: 'The quality of cleaning is excellent. They are dependable. ',
         user_id: 1,
         maid_id: 1
     },
@@ -64,31 +64,31 @@ const reviewdata = [
     },
     {
         title: 'convenience extrdanaire',
-        review_text: ' they came by on relatively short notice, and on a holiday, no less. This is an excellent cleaning service and customer service!  They did an amazing job! ',
+        review_text: ' they came by on relatively short notice, and on a holiday, no less. This is an excellent cleaning service and customer service!  ',
         user_id: 1,
         maid_id: 1
     },
     {
         title: 'Great idea including housekeeping in the rent',
-        review_text: "The cleaning itself was very, very thorough; hardwood floors are gleaming clean by the time she is done!  The house looked great -- I was especially impressed with the oven and refrigerator, which were caked in years of mess, and the landlord was impressed too.",
+        review_text: "The cleaning itself was very, very thorough; hardwood floors are gleaming clean by the time she is done! ",
         user_id: 2,
         maid_id: 2
     },
     {
         title: 'Never leaving this complex',
-        review_text: "Great job with kitchen (fridge or oven upon request, but they did some dishes I accidentally left in the sink, and took out the trash!), bathroom, floors (moved all the furniture), dusting (blinds, sorting through all my little piles of things), and the moulding and other gross corners",
+        review_text: "Great job with kitchen (fridge or oven upon request, but they did some dishes I accidentally left in the sink, and took out the trash!), bathroom, floors (moved all the furniture), ",
         user_id: 3,
         maid_id: 3
     },
     {
         title: 'Great cleaning and availability',
-        review_text: "hey did a wonderful job of vaccuuming, cleaning the bathrooms and kitchen, making the bed, everything. There were a few sneaky corners with cobwebs missed, but as I said before, I wasn't there when they arrived to actually point them out and specify that these corners needed extra attention. I was REALLY pleased with the amazing job they did in the bathrooms.",
+        review_text: "hey did a wonderful job of vaccuuming, cleaning the bathrooms and kitchen, making the bed, everything. There were a few sneaky corners with cobwebs missed, ",
         user_id: 4,
         maid_id: 4
     },
     {
         title: 'so nice to come home and sparkling clean',
-        review_text: " They bring everything they need and when they leave the house sparkles--baseboards, window sills, everything.  also exceeded my expectations by airing out the rugs and doormat, cleaning the hallway, and even cleaning behind the oven.",
+        review_text: " They bring everything they need and when they leave the house sparkles--baseboards, window sills, everything.  also exceeded my expectations by airing out the rugs and doormat",
         user_id: 5,
         maid_id: 5
     }
