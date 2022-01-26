@@ -4,7 +4,9 @@ const { Maid, Review } = require('../models');
 
 
 router.get('/', (req, res) => {
-  res.render('homepage'); 
+  res.render('homepage', {
+    style: "./homepage.css"
+  }); 
   });
 
 
@@ -14,7 +16,9 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('login', {
+    style: "login.css"
+  });
 });
 
 //single maid route
