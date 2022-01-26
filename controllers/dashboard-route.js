@@ -51,8 +51,7 @@ router.get('/', (req, res) => {
       attributes: [
         'id',
         'review_text',
-        'maid_id',
-        'created_at'
+        'maid_id'
       ],
       include: [
         {
@@ -77,8 +76,7 @@ router.get('/', (req, res) => {
     Review.findByPk(req.params.id, {
       attributes: [
         'id',
-        'review_text',
-        'created_at'
+        'review_text'
       ],
       include: [
         {

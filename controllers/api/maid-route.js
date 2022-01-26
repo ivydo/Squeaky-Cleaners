@@ -73,13 +73,13 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.get('/maid/:id', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
-    res.render('maid/:id');
-  });
+  // router.get('/maid/:id', (req, res) => {
+  //   if (req.session.loggedIn) {
+  //     res.redirect('/');
+  //     return;
+  //   }
+  //   res.render('maid/:id');
+  // });
   
 
   module.exports = router;
