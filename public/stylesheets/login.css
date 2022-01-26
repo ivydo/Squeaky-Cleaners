@@ -1,0 +1,168 @@
+/* import text */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@300;400&display=swap");
+
+/* general styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  width: 160px;
+  height: 41px;
+  padding: 0px 10px 0px 10px;
+  background: #262e68;
+  color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 1px 1px 1px 1px;
+  font-family: "Source Sans Pro";
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* nav section */
+
+nav {
+    display: flex;
+  }
+  
+  .nav {
+    position: fixed;
+    background-color: #333;
+    width: 100%;
+  }
+  
+  .nav-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: "Source Sans Pro";
+  }
+  
+  li {
+    float: left;
+  }
+  
+  .nav a {
+    padding: 16px 18px;
+  }
+  
+  .nav li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  li a:hover {
+    background-color: #7c717c;
+  }
+  
+
+/* login-section */
+
+.form-section {
+    margin: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.form-header {
+	color: #f95f9f;
+	font-family: "Lato";
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 1;
+	letter-spacing: 2px;
+	text-align: center;
+    padding: 30px;
+}
+
+.login-form, .signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* signup-section */
+
+.login-section {
+    margin: 20px 0;
+}
+
+.signup-section {
+    margin: 10px 0;
+
+}
+
+.signup-check {
+    margin-top: 10px;
+	font-family: "Lato";
+}
+
+.pink-text {
+	color: #f95f9f;
+}
+
+.em, .un{
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    }
+
+.pass {
+    width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family: 'Ubuntu', sans-serif;
+}
+
+  /* footer section */
+  .footer-credits {
+    width: 100%;
+    text-align: center;
+    font-family: "Source Sans Pro";
+    font-size: 18px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 10px;
+  }

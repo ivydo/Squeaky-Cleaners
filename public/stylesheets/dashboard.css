@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@300;400&display=swap");
+
+/* general styles */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato";
+
+}
+
+hr {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* nav section */
+
+nav {
+    display: flex;
+  }
+  
+  .nav {
+    position: fixed;
+    background-color: #333;
+    width: 100%;
+  }
+  
+  .nav-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: "Source Sans Pro";
+  }
+  
+  li {
+    float: left;
+  }
+  
+  .nav a {
+    padding: 16px 18px;
+  }
+  
+  .nav li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  li a:hover {
+    background-color: #7c717c;
+  }
+
+  /* footer section */
+  
+  .footer-credits {
+    width: 100%;
+    text-align: center;
+    font-family: "Source Sans Pro";
+    font-size: 18px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  /* dash-section */
+
+  .dash-container {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      margin-top: 100px;
+  }
+
+  .dash-header {
+      font-family: "Lato";
+      font-size: 36px;
+      color: #f95f9f;
+      padding-left: 20px;
+    }
+
+
+.maid-list {
+    display: grid;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #f5e9ee;
+    list-style: none;
+}
+
+li {
+    font-size: 24px;
+    text-decoration: none;
+
+}
+
+/* review-section */
+
+.my-reviews {
+    padding: 20px;
+}

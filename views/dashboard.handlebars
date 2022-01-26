@@ -1,25 +1,43 @@
 {{!-- route maid info to here; will follow template from homepage Module 14 on how it lists all posts from all users --}}
+<body>
+  <div class="dash-container">
+<div class="dash-section">
+  <div class="dash-header">
+    <h2>Dashboard</h2>
 
-<ol class="maid-list">
+    {{#if loggedIn}}
+  </div>
+  <div class="dash-maid">
+<ul class="maid-list">
   {{#each maids as |maid|}}
   <li>
     {{> maid-info maid }}
   </li>
   {{/each}}
-</ol>
-{{#if loggedIn}}
-{{!-- List reviews left by loggedIn user --}}
-  <h2>Your Reviews</h2>
-  <ol>
-    {{#each reviews as |review|}}
-    <li>
-      {{> review-info review}}
-      <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
-<script src="/javascript/add-review.js"></script>
+</ul>
+  </div>
+</div>
+
+<div class="dash-review-section">
+  <div class="dash-header">
+      <h2>My Reviews</h2>
+    </div>
+
+  {{!-- List reviews left by loggedIn user --}}
+  <section class="my-reviews">
+    <ol>
+      {{#each reviews as |review|}}
+      <li>
+        {{> reviews review}}
+        <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review</a>
+      </li>
+      {{/each}}
+    </ol>
+  </section>
+  {{/if}}
+</div>
+
+{{!-- <script src="/javascript/review.js"></script> --}}
 <script src="/javascript/edit-review.js"></script>
 <script src="/javascript/delete-review.js"></script>
+</body>
