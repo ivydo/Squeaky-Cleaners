@@ -1,12 +1,16 @@
+{{!-- Show maid name and review qty --}}
+<article class="maid">
+    <div class="title">
+        {{ maid.name }}
+    </div>
 
+    <div class="meta">
+        <a href="/maid/{{maid.id}}">{{maid.reviews.length}} Review(s)</a>
+    </div>
+</article>
 
-<ol class="maid-list">
-    {{#each maids as |maid|}}
-    <li>
-        {{> maid-info maid }}
-    </li>
-    {{/each}}
-</ol>
+{{!-- add review form --}}
+{{#if loggedIn}}
 <form class="review-form">
     <div>
         <textarea name="review-body"></textarea>
@@ -16,9 +20,28 @@
         <button type="submit">Add Review</button>
     </div>
 </form>
+{{/if}}
 
-{{> reviews maid.review}}
+{{!-- reviews displayed connected to maid --}}
+<h2>Reviews</h2>
+<div class="reviews">
+    {{#each maid.reviews}}
+    <section class="review">
+        <div class="meta">
+            {{username}}
+        </div>
 
+        <div class="text">
+            <ul>
+                <li>
+                {{review_text}}
+                </li>
+            </ul>
+        </div>
+    </section>
+    {{/each}}
+</div>
+
+{{#if loggedIn}}
 <script src="/javascript/review.js"></script>
-<script src="/javascript/edit-review.js"></script>
-<script src="/javascript/delete-review.js"></script>
+{{/if}}

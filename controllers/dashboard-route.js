@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Maid.findAll({
-      // where: {
+      //where: {
       //   // use the ID from the session
       //   maid_id: req.session.maid_id
       // },
@@ -55,9 +55,13 @@ router.get('/', (req, res) => {
       ],
       include: [
         {
-          model: Maid,
-          attributes: ['id', 'name']
-        }
+          model: Review,
+          attributes: ['id', 'review_text'],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
+        },
       ],
     })
       .then(dbReviewData => {
@@ -81,9 +85,13 @@ router.get('/', (req, res) => {
       ],
       include: [
         {
-          model: Maid,
-          attributes: ['id', 'name']
-        }
+          model: Review,
+          attributes: ['id', 'review_text'],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
+        },
       ]
     })
       .then(dbReviewData => {
@@ -95,7 +103,7 @@ router.get('/', (req, res) => {
             loggedIn: true
           });
         } else {
-          res.status(500).end();
+          res.status(404).end();
         }
       })
       .catch(err => {

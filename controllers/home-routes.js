@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   }); 
   });
 
-
+//create route to login form
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -61,7 +61,10 @@ router.get('/maid/:id', (req, res) => {
 
     console.log(maid);
 
-    res.render('single-maid', { maid });
+    res.render('single-maid', { 
+      maid, 
+      loggedIn: req.session.loggedIn 
+    });
   })
     .catch(err => {
       console.log(err);
