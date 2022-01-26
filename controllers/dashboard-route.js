@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
       include: [
         {
           model: Review,
-          attributes: ['id', 'review_text'],
+          attributes: ['id', 'title', 'review_text'],
           include: {
             model: User,
             attributes: ['username']
@@ -50,18 +50,23 @@ router.get('/', (req, res) => {
       },
       attributes: [
         'id',
+        'title',
         'review_text',
         'maid_id',
       ],
       include: [
         {
-          model: Review,
-          attributes: ['id', 'review_text'],
+          model: Maid,
+          attributes: ['id', 'name'],
           include: {
             model: User,
             attributes: ['username']
           }
         },
+        {
+          model: User,
+          attributes: ['username']
+        }
       ],
     })
       .then(dbReviewData => {
@@ -86,7 +91,7 @@ router.get('/', (req, res) => {
       include: [
         {
           model: Review,
-          attributes: ['id', 'review_text'],
+          attributes: ['id', 'title', 'review_text'],
           include: {
             model: User,
             attributes: ['username']

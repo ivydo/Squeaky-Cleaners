@@ -19,6 +19,7 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
+      'title',
       'review_text',
       'user_id',
       'maid_id'
@@ -48,6 +49,7 @@ router.post('/', (req, res) => {
   // check the session
   if (req.session) {
     Review.create({
+      title: req.body.title,
       review_text: req.body.review_text,
       maid_id: req.body.maid_id,
       // use the id from the session

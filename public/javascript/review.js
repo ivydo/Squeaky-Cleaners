@@ -6,12 +6,15 @@ async function reviewFormHandler(event) {
     const maid_id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
+
+    const title = document.querySelector('input[name="review-title"]').value.trim();
   
     if (review_text) {
       const response = await fetch('/api/reviews', {
         method: 'POST',
         body: JSON.stringify({
           maid_id,
+          title,
           review_text
         }),
         headers: {

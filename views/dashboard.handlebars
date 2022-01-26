@@ -20,27 +20,24 @@
 
 <div class="dash-review-section">
   <div class="dash-header">
-    <h2>My Reviews</h2>
-  </div>
-  <div class="my-reviews">
+      <h2>My Reviews</h2>
+    </div>
 
-
-{{!-- List reviews left by loggedIn user --}}
-  
-  <ol>
-    {{#each reviews as |review|}}
-    <li>
-      {{> reviews review}}
-      <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
-  </div>
-</div>
+  {{!-- List reviews left by loggedIn user --}}
+  <section class="my-reviews">
+    <ol>
+      {{#each reviews as |review|}}
+      <li>
+        {{> reviews review}}
+        <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review</a>
+      </li>
+      {{/each}}
+    </ol>
+  </section>
+  {{/if}}
 </div>
 
-{{!-- <script src="/javascript/edit-review.js"></script>
-<script src="/javascript/delete-review.js"></script> --}}
+{{!-- <script src="/javascript/review.js"></script> --}}
+<script src="/javascript/edit-review.js"></script>
+<script src="/javascript/delete-review.js"></script>
 </body>
