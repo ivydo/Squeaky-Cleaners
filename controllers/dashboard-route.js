@@ -51,7 +51,7 @@ router.get('/', (req, res) => {
       attributes: [
         'id',
         'review_text',
-        'maid_id'
+        'maid_id',
       ],
       include: [
         {
@@ -60,15 +60,15 @@ router.get('/', (req, res) => {
         }
       ],
     })
-    .then(dbReviewData => {
-      //serialize data before passing to template
-      const reviews = dbReviewData.map(review => review.get({ plain: true }));
-      res.render('dashboard', { reviews, loggedIn: true });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+      .then(dbReviewData => {
+        //serialize data before passing to template
+        const reviews = dbReviewData.map(review => review.get({ plain: true }));
+        res.render('dashboard', { reviews, loggedIn: true });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   });
 
   //to edit review from user logged in
@@ -76,7 +76,8 @@ router.get('/', (req, res) => {
     Review.findByPk(req.params.id, {
       attributes: [
         'id',
-        'review_text'
+        'review_text',
+        'created_at'
       ],
       include: [
         {
@@ -85,21 +86,21 @@ router.get('/', (req, res) => {
         }
       ]
     })
-    .then(dbReviewData => {
-      if (dbReviewData) {
-        const review = dbReviewData.get({ plain: true });
-
-        res.render('edit-review', {
-          review,
-          loggedIn: true
-        });
-      } else {
-        res.status(500).end();
-      }
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
+      .then(dbReviewData => {
+        if (dbReviewData) {
+          const review = dbReviewData.get({ plain: true });
+  
+          res.render('edit-review', {
+            review,
+            loggedIn: true
+          });
+        } else {
+          res.status(500).end();
+        }
+      })
+      .catch(err => {
+        res.status(500).json(err);
+      });
   });
 
 

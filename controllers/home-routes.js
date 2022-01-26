@@ -24,7 +24,6 @@ router.get('/maid/:id', (req, res) => {
     return;
   }
 
-  //add code to bring view
   Maid.findOne({
     where: {
       id: req.params.id
@@ -38,22 +37,32 @@ router.get('/maid/:id', (req, res) => {
       {
         model: Review,
         attributes: ['id', 'review_text', 'maid_id', 'user_id'],
+        // include: {
+        //   model: User,
+        //   attributes: ['username']
+        // }
       },
+      // {
+      //   model: User,
+      //   attributes: ['username']
+      // }
     ]
+  }).then(dbMaidData => {
+    if (!dbMaidData) {
+      res.status(404).json({ message: 'No maid found with this id' });
+      return;
+    }
+
+    const maid = dbMaidData.get({ plain: true });
+
+    console.log(maid);
+
+    res.render('single-maid', { maid });
   })
-    .then(dbMaidData => {
-      if (!dbMaidData) {
-        res.status(404).json({ message: 'No maid found with this id' });
-        return;
-      }
-      res.json(dbMaidData)
-    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
-
-    res.render('single-maid')
-  });
+});
 
 module.exports = router;
