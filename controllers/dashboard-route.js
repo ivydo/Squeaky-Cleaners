@@ -3,49 +3,32 @@ const sequelize = require('../config/connection');
 const { Maid, User, Review } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
-    Maid.findAll({
-      //where: {
-      //   // use the ID from the session
-      //   maid_id: req.session.maid_id
-      // },
+router.get('/', async (req, res) => {
+  // Wrapping in try/catch in order to handle any database errors.
+  try {
+    // Query database for all Maids.
+    const maidRows = await Maid.findAll({
       attributes: [
         'id',
         'name',
-        'schedule',
+        
       ],
-
       include: [
         {
           model: Review,
           attributes: ['id', 'title', 'review_text'],
           include: {
             model: User,
-            attributes: ['username']
-          }
+            attributes: ['username'],
+          },
         },
-        // {
-        //   model: User,
-        //   attributes: ['username']
-        // }
       ]
-    })
-      .then(dbMaidData => {
-        // serialize data before passing to template
-        const maids = dbMaidData.map(maid => maid.get({ plain: true }));
-        res.render('dashboard', { maids, loggedIn: true, style: "dashboard.css"});
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      })
-  });
-
-  //list reviews from logged in user AND ability to edit/delete
-  router.get('/', (req, res) => {
-    Review.findAll({
+    });
+​
+    // Query database for all Reviews for the currently authenticated user.
+    const reviewRows = await Review.findAll({
       where: {
-        //user id connected to session
+        // User id connected to session.
         user_id: req.session.user_id
       },
       attributes: [
@@ -58,27 +41,28 @@ router.get('/', (req, res) => {
         {
           model: Maid,
           attributes: ['id', 'name'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
         },
-        {
-          model: User,
-          attributes: ['username']
-        }
       ],
     })
-      .then(dbReviewData => {
-        //serialize data before passing to template
-        const reviews = dbReviewData.map(review => review.get({ plain: true }));
-        res.render('dashboard', { reviews, loggedIn: true });
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+
+    // Clean up Sequelize records so we can pass them into Handlebars.
+    const maids = maidRows.map(maid => maid.get({ plain: true }));
+    const reviews = reviewRows.map(review => review.get({ plain: true }));
+
+    // Render dashboard.handlebars, passing in maids and reviews data.
+    res.render(
+      'dashboard',
+      {
+        maids,
+        reviews,
+        loggedIn: true,
+        style: "dashboard.css"
       });
-  });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+});
 
   //to edit review from user logged in
   router.get('/edit/:id', (req, res) => {
@@ -102,7 +86,7 @@ router.get('/', (req, res) => {
     .then(dbReviewData => {
       if (dbReviewData) {
         const review = dbReviewData.get({ plain: true });
-        
+
         res.render('edit-review', {
           review,
           loggedIn: true
