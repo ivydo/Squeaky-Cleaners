@@ -87,7 +87,6 @@ router.get('/', (req, res) => {
         'id',
         'title',
         'review_text',
-        //'created_at'
       ],
       include: [
         {
@@ -100,21 +99,21 @@ router.get('/', (req, res) => {
         },
       ]
     })
-      .then(dbReviewData => {
-        if (dbReviewData) {
-          const review = dbReviewData.get({ plain: true });
-  
-          res.render('edit-review', {
-            review,
-            loggedIn: true
-          });
-        } else {
-          res.status(404).end();
-        }
-      })
-      .catch(err => {
-        res.status(500).json(err);
-      });
+    .then(dbReviewData => {
+      if (dbReviewData) {
+        const review = dbReviewData.get({ plain: true });
+        
+        res.render('edit-review', {
+          review,
+          loggedIn: true
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
   });
 
   
