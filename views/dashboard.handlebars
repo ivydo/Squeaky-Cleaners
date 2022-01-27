@@ -5,7 +5,7 @@
   <div class="dash-header">
     <h2>Dashboard</h2>
 
-    {{#if loggedIn}}
+    
   </div>
   <div class="dash-maid">
 <ul class="maid-list">
@@ -19,13 +19,14 @@
 </div>
 
 <div class="dash-review-section">
-  <div class="dash-header">
+    <div class="dash-header">
       <h2>My Reviews</h2>
     </div>
-
-  {{!-- List reviews left by loggedIn user --}}
-  <section class="my-reviews">
-    <ol>
+</div>
+{{!-- List reviews left by loggedIn user --}}
+  {{#if reviews.length}}
+    <section class="my-reviews">
+      <ol>
       {{#each reviews as |review|}}
       <li>
         {{> reviews review}}
@@ -35,9 +36,9 @@
     </ol>
   </section>
   {{/if}}
-</div>
 
-{{!-- <script src="/javascript/review.js"></script> --}}
+
+<script src="/javascript/review.js"></script>
 <script src="/javascript/edit-review.js"></script>
 <script src="/javascript/delete-review.js"></script>
 </body>
