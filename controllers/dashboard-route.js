@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Maid.findAll({
-      // where: {
+      //where: {
       //   // use the ID from the session
       //   maid_id: req.session.maid_id
       // },
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
       include: [
         {
           model: Review,
-          attributes: ['id', 'review_text'],
+          attributes: ['id', 'title', 'review_text'],
           include: {
             model: User,
             attributes: ['username']
@@ -39,6 +39,82 @@ router.get('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
       })
+  });
+
+  //list reviews from logged in user AND ability to edit/delete
+  router.get('/', (req, res) => {
+    Review.findAll({
+      where: {
+        //user id connected to session
+        user_id: req.session.user_id
+      },
+      attributes: [
+        'id',
+        'title',
+        'review_text',
+        'maid_id',
+      ],
+      include: [
+        {
+          model: Maid,
+          attributes: ['id', 'name'],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
+        },
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ],
+    })
+      .then(dbReviewData => {
+        //serialize data before passing to template
+        const reviews = dbReviewData.map(review => review.get({ plain: true }));
+        res.render('dashboard', { reviews, loggedIn: true });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+  //to edit review from user logged in
+  router.get('/edit/:id', (req, res) => {
+    Review.findByPk(req.params.id, {
+      attributes: [
+        'id',
+        'title',
+        'review_text',
+        //'created_at'
+      ],
+      include: [
+        {
+          model: Maid,
+          attributes: ['id', 'name'],
+          // include: {
+          //   model: User,
+          //   attributes: ['username']
+          // }
+        },
+      ]
+    })
+      .then(dbReviewData => {
+        if (dbReviewData) {
+          const review = dbReviewData.get({ plain: true });
+  
+          res.render('edit-review', {
+            review,
+            loggedIn: true
+          });
+        } else {
+          res.status(404).end();
+        }
+      })
+      .catch(err => {
+        res.status(500).json(err);
+      });
   });
 
 

@@ -1,13 +1,22 @@
-<ol class="maid-list">
-    {{#each maids as |maid|}}
-    <li>
-        {{> maid-info maid }}
-    </li>
-    {{/each}}
-</ol>
+{{!-- Show maid name and review qty --}}
+<article class="maid">
+    <a href="/dashboard"> &larr; Back to dashboard</a>
+    <div class="title">
+        {{ maid.name }}
+    </div>
 
+    <div class="meta">
+        <a href="/maid/{{maid.id}}">{{maid.reviews.length}} Review(s)</a>
+    </div>
+</article>
+
+{{!-- add review form --}}
 {{#if loggedIn}}
 <form class="review-form">
+    <div>
+        <label for="review-title">Title:</label>
+        <input type="text" name="review-title" id="review-title">
+    </div>
     <div>
         <textarea name="review-body"></textarea>
     </div>
@@ -18,10 +27,27 @@
 </form>
 {{/if}}
 
-{{> reviews maid.review}}
+{{!-- reviews displayed connected to maid --}}
+<h2>Reviews</h2>
+<div class="reviews">
+    {{#each maid.reviews}}
+    <section class="review">
+        <div class="meta">
+            {{username}}
+        </div>
 
-</article>
+        <div class="text">
+            <ul>
+                <li>
+                    {{title}} {{review_text}}
+                </li>
+            </ul>
+        </div>
+    </section>
+    {{/each}}
+</div>
 
 {{#if loggedIn}}
 <script src="/javascript/review.js"></script>
+
 {{/if}}

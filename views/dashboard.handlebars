@@ -4,38 +4,40 @@
 <div class="dash-section">
   <div class="dash-header">
     <h2>Dashboard</h2>
+
+    {{#if loggedIn}}
   </div>
   <div class="dash-maid">
-<ol class="maid-list">
+<ul class="maid-list">
   {{#each maids as |maid|}}
   <li>
     {{> maid-info maid }}
   </li>
   {{/each}}
-</ol>
+</ul>
   </div>
 </div>
 
 <div class="dash-review-section">
   <div class="dash-header">
-    <h2>My Reviews</h2>
-  </div>
-  <div class="my-reviews">
-{{!-- List reviews left by loggedIn user --}}
-  <h2>Your Reviews</h2>
-  <ol>
-    {{#each reviews as |review|}}
-    <li>
-      {{> review-info review}}
-      <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-  </div>
+      <h2>My Reviews</h2>
+    </div>
+
+  {{!-- List reviews left by loggedIn user --}}
+  <section class="my-reviews">
+    <ol>
+      {{#each reviews as |review|}}
+      <li>
+        {{> reviews review}}
+        <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review</a>
+      </li>
+      {{/each}}
+    </ol>
+  </section>
+  {{/if}}
 </div>
-</div>
-<script src="/javascript/add-review.js"></script>
+
+{{!-- <script src="/javascript/review.js"></script> --}}
 <script src="/javascript/edit-review.js"></script>
 <script src="/javascript/delete-review.js"></script>
 </body>

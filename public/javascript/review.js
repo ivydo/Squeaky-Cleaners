@@ -1,24 +1,34 @@
-async function newFormHandler(event) {
+async function reviewFormHandler(event) {
     event.preventDefault();
   
-    const title = document.querySelector('input[name="review_text"]').value;
+    const review_text = document.querySelector('textarea[name="review-body"]').value.trim();
+
+    const maid_id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+    ];
+
+    const title = document.querySelector('input[name="review-title"]').value.trim();
   
-    const response = await fetch(`/api/posts`, {
-      method: 'POST',
-      body: JSON.stringify({
-        review_text      
-      }),
-      headers: {
-        'Content-Type': 'application/json'
+    if (review_text) {
+      const response = await fetch('/api/reviews', {
+        method: 'POST',
+        body: JSON.stringify({
+          maid_id,
+          title,
+          review_text
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        document.location.reload();
+      } else {
+        alert(response.statusText);
       }
-    });
-  
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
     }
-  }
-  
-  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+}
+
+  document.querySelector('.review-form').addEventListener('submit', reviewFormHandler);
   
