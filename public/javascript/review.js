@@ -8,6 +8,8 @@ async function reviewFormHandler(event) {
     ];
 
     const title = document.querySelector('input[name="review-title"]').value.trim();
+
+    const username = document.querySelector('{{username}}').value.trim();
   
     if (review_text) {
       const response = await fetch('/api/reviews', {
@@ -15,7 +17,8 @@ async function reviewFormHandler(event) {
         body: JSON.stringify({
           maid_id,
           title,
-          review_text
+          review_text,
+          username
         }),
         headers: {
           'Content-Type': 'application/json'

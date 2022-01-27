@@ -21,15 +21,15 @@ router.get('/:id', (req, res) => {
       'id',
       'title',
       'review_text',
-      'user_id',
+      'username',
       'maid_id'
     ],
-    // include: [
-    //   {
-    //   model: Maid,
-    //   attributes: ['id', 'name']
-    //   }
-    // ]
+    include: [
+      {
+      model: Maid,
+      attributes: ['id', 'name']
+      }
+    ]
   })
   .then(dbReviewData => {
     if (!dbReviewData) {
@@ -68,6 +68,9 @@ router.put('/:id', withAuth, (req, res) => {
   Review.update(
     {
       title: req.body.title
+    },
+    {
+      review_text: req.body.review_text
     },
     {
       where: {
