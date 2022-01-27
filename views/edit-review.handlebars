@@ -2,11 +2,18 @@
     <a href="/dashboard"> &larr; Back to dashboard</a>
     <h2> Edit Review</h2>
 
+    
     <form class="edit-review-form">
         <div>
-            <input name="review-title" type="text" value="{{review.review-title}}" />
-            <span>({{review.review_text}})</span>
+            <label for="review-title">
+                <h4>Title Update:
+                    
+                </h4>
+                <textarea name="review-title" id="review-title">{{review.title}}</textarea>
+            </label>
+            <span>{{review.title}}</span>
         </div>
+
         <div>
             <a href="/review/{{review.id}}">{{review.length}}</a>
         </div>

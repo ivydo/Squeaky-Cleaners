@@ -34,13 +34,15 @@
     {{#each maid.reviews}}
     <section class="review">
         <div class="meta">
-            {{username}}
+            
+            {{user.username}}
+            
         </div>
 
         <div class="text">
             <ul>
                 <li>
-                    {{title}} {{review_text}}
+                    <strong>{{title}}</strong> <em>{{review_text}}</em> <small>{{username}}</small>
                 </li>
             </ul>
         </div>
