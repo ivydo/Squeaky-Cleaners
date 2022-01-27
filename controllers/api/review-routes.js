@@ -63,8 +63,12 @@ router.post('/', (req, res) => {
   }
 });
 
+//update edit id
 router.put('/:id', withAuth, (req, res) => {
   Review.update(
+    {
+      title: req.body.title
+    },
     {
       where: {
         id: req.params.id

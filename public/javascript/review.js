@@ -29,5 +29,6 @@ async function reviewFormHandler(event) {
     }
 }
 
+//submit new review
   document.querySelector('.review-form').addEventListener('submit', reviewFormHandler);
   
