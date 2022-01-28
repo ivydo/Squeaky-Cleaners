@@ -44,6 +44,8 @@
 Clone the repository onto into your system, and then ensure the NPM packages listed above are installed. Please see each package's link for documentation and installation directions/code. Once completed, the user should run MySQL to use `source db/schema.sql` to populate the test information previously seeded. After exiting, the user will need to run `npm run seeds` followed by `npm start`. Opening a web browser tab and enter the route `localhost:3001/` which will go to the homepage view, and from there the user will be able to signup, post, edit, and delete reviews.  
 
 ## Application Images
+<img src="https://github.com/ivydo/Squeaky-Cleaners/blob/feature/alexis/public/assets/Home%20page.png">
+<img src="https://github.com/ivydo/Squeaky-Cleaners/blob/feature/alexis/public/assets/login-view.png">
 
 ## Application Link
 For the link to the live application please click: [HERE]()
