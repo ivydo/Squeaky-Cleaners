@@ -36,12 +36,19 @@
 <div class="reviews">
     <h2>Reviews</h2>
     {{#each maid.reviews}}
-    <section class="review">
+    <section class="review">        
+        <div class="meta">
+            {{!-- need something here to make reviews drop cant be words or they repeat on screen. 
+            just leaving this for now for to show how it should look --}}
+            <br>
+        </div>
 
         <div class="text">
-            <li>
-                <strong>{{title}}</strong> <em>{{review_text}}</em> <small>{{user.username}}</small>
-            </li>
+            <ul>
+                <li>
+                    <strong>{{title}}</strong> <em>{{review_text}}</em> <small>{{user.username}}</small>
+                </li>
+            </ul>
         </div>
     </section>
     {{/each}}
