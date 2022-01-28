@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
       attributes: [
         'id',
         'name',
-        'schedule',
+        // 'schedule',
       ],
       include: [
         {
