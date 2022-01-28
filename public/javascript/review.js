@@ -1,3 +1,5 @@
+
+
 async function reviewFormHandler(event) {
     event.preventDefault();
   
@@ -8,6 +10,8 @@ async function reviewFormHandler(event) {
     ];
 
     const title = document.querySelector('input[name="review-title"]').value.trim();
+
+    //const username = document.querySelector('{{username}}').value.trim();
   
     if (review_text) {
       const response = await fetch('/api/reviews', {
@@ -15,20 +19,30 @@ async function reviewFormHandler(event) {
         body: JSON.stringify({
           maid_id,
           title,
-          review_text
+          review_text,
+          //username
         }),
         headers: {
           'Content-Type': 'application/json'
         }
+      })
+      .then(res => {
+        console.log(res);
+        document.location.reload();
+      })
+      .catch(err => {
+        console.log(err);
+        alert(response.statusText);
       });
 
-      if (response.ok) {
-        document.location.reload();
-      } else {
-        alert(response.statusText);
-      }
+      // if (response.ok) {
+        
+      // } else {
+        //alert(response.statusText);
+      // }
     }
 }
 
+//submit new review
   document.querySelector('.review-form').addEventListener('submit', reviewFormHandler);
   

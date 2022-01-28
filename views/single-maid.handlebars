@@ -20,11 +20,12 @@
         <input type="text" name="review-title" id="review-title">
     </div>
     <div>
+        <label for="review-body">Review:</label>
         <textarea name="review-body"></textarea>
     </div>
 
     <div>
-        <button type="submit" class="btn">Add Cookie</button>
+        <button type="submit">Post Review</button>
     </div>
 </form>
 {{/if}}
@@ -35,13 +36,15 @@
     {{#each maid.reviews}}
     <section class="review">
         <div class="meta">
-            {{username}}
+            
+            {{user.username}}
+            
         </div>
 
         <div class="text">
             <ul>
                 <li>
-                    {{title}} {{review_text}}
+                    <strong>{{title}}</strong> <em>{{review_text}}</em> <small>{{username}}</small>
                 </li>
             </ul>
         </div>

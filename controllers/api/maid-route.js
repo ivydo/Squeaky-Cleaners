@@ -9,8 +9,7 @@ router.get('/', (req, res) => {
   Maid.findAll({
     attributes: [
       'id',
-      'name',
-      'schedule'
+      'name'
     ],
     //order: [['created_at', 'DESC']],
     include: [

@@ -2,11 +2,18 @@
     <a href="/dashboard"> &larr; Back to dashboard</a>
     <h2> Edit Review</h2>
 
+    <h4>Upate Title:</h4>
     <form class="edit-review-form">
-        <div>
-            <input name="review-title" type="text" value="{{review.review-title}}" />
-            <span>({{review.review_text}})</span>
+        <div>                
+            <textarea name="review-title" id="review-title">{{review.title}}</textarea>
+            <span>{{review.title}}</span>
         </div>
+
+        <div>
+            <textarea name="review_text" id="review_text">{{review.review_text}}</textarea>
+            <span>{{review.review_text}}</span>
+        </div>
+
         <div>
             <a href="/review/{{review.id}}">{{review.length}}</a>
         </div>
@@ -17,4 +24,4 @@
 
 <script src="/javascript/edit-review.js"></script>
 <script src="/javascript/delete-review.js"></script>
-<script src="/javascript/review.js"></script>
+{{!-- <script src="/javascript/review.js"></script> --}}
