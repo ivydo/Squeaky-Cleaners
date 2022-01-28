@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Maid, Review } = require('../models');
+const { Maid, Review, User } = require('../models');
 
 
 router.get('/', (req, res) => {
@@ -35,21 +35,17 @@ router.get('/maid/:id', (req, res) => {
     attributes: [
       'id',
       'name',
-      //'schedule'
+      
     ],
     include: [
       {
         model: Review,
-        attributes: ['id', 'title', 'review_text', 'maid_id', 'user_id'],
-        // include: {
-        //   model: User,
-        //   attributes: ['username']
-        // }
+        attributes: ['id', 'title', 'review_text', 'maid_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
       },
-      // {
-      //   model: User,
-      //   attributes: ['username']
-      // }
     ]
   }).then(dbMaidData => {
     if (!dbMaidData) {

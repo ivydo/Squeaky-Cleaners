@@ -25,13 +25,14 @@ router.get('/', async (req, res) => {
 
     const reviewRows = await Review.findAll({
       where: {
-        user_id: req.session.id
+        user_id: req.session.user_id
       },
       attributes: [
         'id',
         'title',
         'review_text',
-        'maid_id'
+        'maid_id',
+        'created_at'
       ],
       include: [
         {
@@ -57,8 +58,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-  
-
 //to edit review from user logged in
 router.get('/edit/:id', (req, res) => {
   Review.findByPk(req.params.id, {
@@ -70,10 +69,6 @@ router.get('/edit/:id', (req, res) => {
       include: [{
         model: Maid,
         attributes: ['id', 'name'],
-        // include: {
-        //   model: User,
-        //   attributes: ['username']
-        // }
       }, ]
     })
     .then(dbReviewData => {

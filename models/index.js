@@ -16,11 +16,11 @@ Maid.hasMany(Review, {
 });
 
 Review.belongsTo(User, {
-    foreignKey: 'review_id'
+    foreignKey: 'user_id'
 });
 
 Review.belongsTo(Maid, {
-    foreignKey: 'review_id'
+    foreignKey: 'maid_id'
 });
 
 
