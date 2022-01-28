@@ -1,51 +1,30 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Maid, User, Review } = require('../models');
+const { Maid,  User,  Review} = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
-    Maid.findAll({
-      //where: {
-      //   // use the ID from the session
-      //   maid_id: req.session.maid_id
-      // },
+router.get('/', async (req, res) => {
+  try {
+    const maidRows = await Maid.findAll({
       attributes: [
         'id',
         'name',
         'schedule',
       ],
-
       include: [
         {
           model: Review,
           attributes: ['id', 'title', 'review_text'],
           include: {
             model: User,
-            attributes: ['username']
-          }
+            attributes: ['username'],
+          },
         },
-        // {
-        //   model: User,
-        //   attributes: ['username']
-        // }
       ]
-    })
-      .then(dbMaidData => {
-        // serialize data before passing to template
-        const maids = dbMaidData.map(maid => maid.get({ plain: true }));
-        res.render('dashboard', { maids, loggedIn: true, style: "dashboard.css"});
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      })
-  });
+    });
 
-  //list reviews from logged in user AND ability to edit/delete
-  router.get('/', (req, res) => {
-    Review.findAll({
+    const reviewRows = await Review.findAll({
       where: {
-        //user id connected to session
         user_id: req.session.user_id
       },
       attributes: [
@@ -53,69 +32,63 @@ router.get('/', (req, res) => {
         'title',
         'review_text',
         'maid_id',
+        'created_at'
       ],
       include: [
         {
           model: Maid,
           attributes: ['id', 'name'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
         },
-        {
-          model: User,
-          attributes: ['username']
-        }
       ],
     })
-      .then(dbReviewData => {
-        //serialize data before passing to template
-        const reviews = dbReviewData.map(review => review.get({ plain: true }));
-        res.render('dashboard', { reviews, loggedIn: true });
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
 
-  //to edit review from user logged in
-  router.get('/edit/:id', (req, res) => {
-    Review.findByPk(req.params.id, {
+    const maids = maidRows.map(maid => maid.get({ plain: true }));
+    const reviews = reviewRows.map(review => review.get({ plain: true }));
+
+    res.render ('dashboard', {
+      maids,
+      reviews,
+      loggedIn: true,
+      style: "dashboard.css"
+    });
+  }
+  catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+});
+
+//to edit review from user logged in
+router.get('/edit/:id', (req, res) => {
+  Review.findByPk(req.params.id, {
       attributes: [
         'id',
         'title',
         'review_text',
-        //'created_at'
       ],
-      include: [
-        {
-          model: Maid,
-          attributes: ['id', 'name'],
-          // include: {
-          //   model: User,
-          //   attributes: ['username']
-          // }
-        },
-      ]
+      include: [{
+        model: Maid,
+        attributes: ['id', 'name'],
+      }, ]
     })
-      .then(dbReviewData => {
-        if (dbReviewData) {
-          const review = dbReviewData.get({ plain: true });
-  
-          res.render('edit-review', {
-            review,
-            loggedIn: true
-          });
-        } else {
-          res.status(404).end();
-        }
-      })
-      .catch(err => {
-        res.status(500).json(err);
-      });
-  });
+    .then(dbReviewData => {
+      if (dbReviewData) {
+        const review = dbReviewData.get({
+          plain: true
+        });
 
-  
-  module.exports = router;
+        res.render('edit-review', {
+          review,
+          loggedIn: true
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
+
+module.exports = router;

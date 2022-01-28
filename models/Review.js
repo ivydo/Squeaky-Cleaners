@@ -36,13 +36,13 @@ Review.init(
             references: {
                 model: 'maid',
                 key: 'id'
-            }
+            },
         }
     },
     {
     sequelize,
     freezeTableName: true,
-    timestamps: false,
+    timestamps: true,
     underscored: true,
     modelName: 'review'
     }

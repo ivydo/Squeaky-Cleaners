@@ -14,11 +14,7 @@ Maid.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        schedule: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
+        }
         },
     {
         sequelize,
