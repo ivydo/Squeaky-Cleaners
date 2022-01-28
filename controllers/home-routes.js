@@ -5,7 +5,7 @@ const { Maid, Review } = require('../models');
 
 router.get('/', (req, res) => {
   res.render('homepage', {
-    style: "./homepage.css"
+    style: "homepage.css"
   }); 
   });
 
@@ -63,7 +63,8 @@ router.get('/maid/:id', (req, res) => {
 
     res.render('single-maid', { 
       maid, 
-      loggedIn: req.session.loggedIn 
+      loggedIn: req.session.loggedIn,
+      style: "single-maid.css" 
     });
   })
     .catch(err => {
