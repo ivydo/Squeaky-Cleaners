@@ -1,5 +1,7 @@
 {{!-- Show maid name and review qty --}}
 
+<body>
+    
 
 <article class="maid">
     <a href="/dashboard"> &larr; Back to dashboard</a>
@@ -31,22 +33,15 @@
 {{/if}}
 
 {{!-- reviews displayed connected to maid --}}
-<h2>Reviews</h2>
 <div class="reviews">
+    <h2>Reviews</h2>
     {{#each maid.reviews}}
     <section class="review">
-        <div class="meta">
-            
-            {{user.username}}
-            
-        </div>
 
         <div class="text">
-            <ul>
-                <li>
-                    <strong>{{title}}</strong> <em>{{review_text}}</em> <small>{{username}}</small>
-                </li>
-            </ul>
+            <li>
+                <strong>{{title}}</strong> <em>{{review_text}}</em> <small>{{user.username}}</small>
+            </li>
         </div>
     </section>
     {{/each}}
@@ -55,3 +50,4 @@
 {{#if loggedIn}}
 <script src="../javascript/review.js"></script>
 {{/if}}
+</body>
