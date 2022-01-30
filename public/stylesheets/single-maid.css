@@ -1,3 +1,7 @@
+/* general styles */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@300;400&display=swap");
+
+/* nav */
 nav {
   display: flex;
 }
@@ -34,3 +38,77 @@ li {
 li a:hover {
   background-color: #7c717c;
 }
+
+/* maid section */
+
+.maid {
+  margin-top: 80px;
+}
+
+.title {
+  font-family: Lato;
+  font-size: 24px;
+	color: #f95f9f; 
+}
+
+.meta {
+  font-family: Lato;
+  padding: 5px 0;
+  font-size: 18px;
+	color: #f95f9f; 
+}
+
+a {
+  text-decoration: none;
+  font-family: "Lato";
+}
+
+input, label {
+  display:block;
+  font-family: "Lato";
+  padding: 5px;
+}
+
+.btn {
+  width: 160px;
+  height: 41px;
+  padding: 0px 10px 0px 10px;
+  background: #262e68;
+  color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 1px 1px 1px 1px;
+  font-family: "Source Sans Pro";
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+h2 {
+    font-family: Lato;
+    padding: 5px 0;
+    font-size: 32px;
+    color: #f95f9f; 
+}
+
+.reviews {
+  font-family: Lato;
+  padding: 5px 0;
+  font-size: 18px;
+}
+
+
+
+
+  /* footer section */
+  .footer-credits {
+    width: 100%;
+    text-align: center;
+    font-family: "Source Sans Pro";
+    font-size: 18px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 10px;
+  }
