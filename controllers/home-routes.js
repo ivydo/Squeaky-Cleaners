@@ -21,6 +21,16 @@ router.get('/login', (req, res) => {
   });
 });
 
+//create route to view schedule
+router.get('/maid/:id/schedule', (req, res) => {
+  if(!req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('schedule');
+});
+
 //single maid route
 router.get('/maid/:id', (req, res) => {
   if (!req.session.loggedIn) {

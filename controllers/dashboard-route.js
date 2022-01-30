@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { Maid,  User,  Review} = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const maidRows = await Maid.findAll({
       attributes: [
@@ -59,7 +59,7 @@ router.get('/', async (req, res) => {
 });
 
 //to edit review from user logged in
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
   Review.findByPk(req.params.id, {
       attributes: [
         'id',
