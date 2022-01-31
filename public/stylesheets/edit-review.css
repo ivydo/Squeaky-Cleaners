@@ -1,0 +1,98 @@
+/* import text */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@300;400&display=swap");
+
+/* general styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* nav */
+ nav {
+    display: flex;
+  }
+  
+  .nav {
+    position: fixed;
+    background-color: #333;
+    width: 100%;
+  }
+  
+  .nav-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: "Source Sans Pro";
+  }
+  
+  li {
+    float: left;
+  }
+  
+  .nav a {
+    padding: 16px 18px;
+  }
+  
+  .nav li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  li a:hover {
+    background-color: #7c717c;
+  }
+  
+  /* footer section */
+  .footer-credits {
+    width: 100%;
+    text-align: center;
+    font-family: "Source Sans Pro";
+    font-size: 18px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* form */
+
+  input, label {
+    display:block;
+    font-family: "Lato";
+    padding: 5px;
+  }
+
+  .delete-review-btn {
+    width: 160px;
+    height: 41px;
+    padding: 0px 10px 0px 10px;
+    background: #262e68;
+    color: #ffffff;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 1px 1px 1px 1px;
+    font-family: "Source Sans Pro";
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .btn {
+    width: 160px;
+    height: 41px;
+    padding: 0px 10px 0px 10px;
+    background: #262e68;
+    color: #ffffff;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 1px 1px 1px 1px;
+    font-family: "Source Sans Pro";
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
