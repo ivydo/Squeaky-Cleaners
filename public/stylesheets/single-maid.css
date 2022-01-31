@@ -1,6 +1,20 @@
 /* general styles */
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@300;400&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(229, 215, 241);
+}
+
+.link-section {
+  margin-top:80px;
+  margin-left: 10px;
+}
+
 /* nav */
 nav {
   display: flex;
@@ -41,8 +55,29 @@ li a:hover {
 
 /* maid section */
 
+.second-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 2;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 2;
+}
+
 .maid {
-  margin-top: 80px;
+  margin-top: 50px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  padding: 20px 0;
+  border-radius: 15px;
 }
 
 .title {
@@ -67,6 +102,11 @@ input, label {
   display:block;
   font-family: "Lato";
   padding: 5px;
+}
+
+
+textarea {
+  width: 100%;
 }
 
 .btn {
@@ -94,9 +134,25 @@ h2 {
 
 .reviews {
   font-family: Lato;
-  padding: 5px 0;
+  margin: 20px 0;
   font-size: 18px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+/* text-align: center; */
+  width: 50%;
+  background-color: white;
+  padding: 10px;
 }
+
+.reviews h2 {
+  text-align: center;
+}
+
+li {
+list-style: none;
+}
+
 
 
 
@@ -110,5 +166,6 @@ h2 {
     position: fixed;
     bottom: 0;
     width: 100%;
-    margin-bottom: 10px;
+    background-color: #ffffff;
   }
+

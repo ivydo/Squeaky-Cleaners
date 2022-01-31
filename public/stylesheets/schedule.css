@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+body {
+  background-color: rgb(226, 212, 240);
+}
+
 .schedule {
   margin-top: 100px;
   font-family: "Source Sans Pro";

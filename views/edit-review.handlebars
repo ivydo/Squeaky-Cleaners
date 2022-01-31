@@ -1,19 +1,22 @@
 <head>
     <link rel="stylesheet" href="/../stylesheets/edit-review.css">
 </head>
+<div class="link">
+        <a href="/dashboard"> &larr; Back to dashboard</a>
 
+</div>
 <article>
-    <a href="/dashboard"> &larr; Back to dashboard</a>
-    <h2> Edit Review</h2>
 
     <form class="edit-review-form">
-        <div>
+            <h2> Edit Review</h2>
+
+        <div class="edit-section">
             <span>{{review.title}}</span>
             <textarea name="review-title" id="review-title">{{review.title}}</textarea>
 
         </div>
 
-        <div>
+        <div class="edit-section">
             <span>{{review.review_text}}</span>
                         <textarea name="review_text" id="review_text">{{review.review_text}}</textarea>
 
@@ -22,8 +25,11 @@
         <div>
             <a href="/review/{{review.id}}">{{review.length}}</a>
         </div>
-        <button type="submit" class="btn">Save Review</button>
+        <div clas="btn-div">
+                    <button type="submit" class="btn">Save Review</button>
         <button type="button" class="delete-review-btn">Delete Review</button>
+        </div>
+
     </form>
 </article>
 
