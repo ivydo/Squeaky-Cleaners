@@ -5,6 +5,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Lato";
 }
 
 /* nav */
@@ -95,4 +96,38 @@
     font-size: 18px;
     letter-spacing: 1px;
     text-align: center;
+  }
+
+  /* #review-title #review_text {
+    display: inline-block;
+  } */
+
+  span {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 10px 0;
+
+  }
+
+  article {
+    margin-top: 80px;
+    margin-left: 20px;
+  }
+
+  h2 {
+    padding: 10px;
+    font-size: 36px;
+    text-align: center;
+  }
+
+  textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 80%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 13px;
   }

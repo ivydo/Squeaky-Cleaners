@@ -1,7 +1,31 @@
+/* import text */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@300;400&display=swap");
+
+/* general styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .schedule {
   margin-top: 100px;
   font-family: "Source Sans Pro";
+}
 
+.meta {
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.link {
+  padding-left: 10px;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
 }
 
 /* nav */

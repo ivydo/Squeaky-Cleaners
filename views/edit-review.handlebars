@@ -1,21 +1,22 @@
 <head>
-<link rel="stylesheet" href="/../stylesheets/edit-review.css">
+    <link rel="stylesheet" href="/../stylesheets/edit-review.css">
 </head>
 
 <article>
     <a href="/dashboard"> &larr; Back to dashboard</a>
     <h2> Edit Review</h2>
 
-    <h4>Upate Title:</h4>
     <form class="edit-review-form">
-        <div>                
-            <textarea name="review-title" id="review-title">{{review.title}}</textarea>
+        <div>
             <span>{{review.title}}</span>
+            <textarea name="review-title" id="review-title">{{review.title}}</textarea>
+
         </div>
 
         <div>
-            <textarea name="review_text" id="review_text">{{review.review_text}}</textarea>
             <span>{{review.review_text}}</span>
+                        <textarea name="review_text" id="review_text">{{review.review_text}}</textarea>
+
         </div>
 
         <div>
@@ -28,4 +29,5 @@
 
 <script src="/javascript/edit-review.js"></script>
 <script src="/javascript/delete-review.js"></script>
-{{!-- <script src="/javascript/review.js"></script> --}}
+{{!--
+<script src="/javascript/review.js"></script> --}}
