@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Squeaky Cleaners</title>
-  <link rel="stylesheet" href="stylesheets/{{style}}">
+  <link rel="stylesheet" href="../stylesheets/{{style}}">
+
+
 </head>
 <body>
       <!-- nav section-->
@@ -16,6 +18,7 @@
             {{#if loggedIn}}
               <li><a href="/" id="logout">Logout</a></li>
               <li><a href="/dashboard">Dashboard</a></li>
+              <li><a href="#my-reviews">My Reviews</a></li>
             {{else}}
               <li><a href="/">Home</a></li>
               <li><a href="/login">Login</a></li>
@@ -37,7 +40,7 @@
       </div>
     </footer>
     {{#if loggedIn}}
-      <script src="javascript/logout.js"></script>
+      <script src="../javascript/logout.js"></script>
       {{/if}}
     </body>
 </html>

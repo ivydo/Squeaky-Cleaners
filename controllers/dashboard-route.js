@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
       attributes: [
         'id',
         'name',
-        'schedule',
+        // 'schedule',
       ],
       include: [
         {
@@ -79,7 +79,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
 
         res.render('edit-review', {
           review,
-          loggedIn: true
+          loggedIn: true,
+          style: "edit-review.css"
         });
       } else {
         res.status(404).end();

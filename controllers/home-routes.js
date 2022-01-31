@@ -5,7 +5,7 @@ const { Maid, Review, User } = require('../models');
 
 router.get('/', (req, res) => {
   res.render('homepage', {
-    style: "./homepage.css"
+    style: "homepage.css"
   }); 
   });
 
@@ -19,6 +19,16 @@ router.get('/login', (req, res) => {
   res.render('login', {
     style: "login.css"
   });
+});
+
+//create route to view schedule
+router.get('/maid/:id/schedule', (req, res) => {
+  if(!req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('schedule');
 });
 
 //single maid route
@@ -59,7 +69,8 @@ router.get('/maid/:id', (req, res) => {
 
     res.render('single-maid', { 
       maid, 
-      loggedIn: req.session.loggedIn 
+      loggedIn: req.session.loggedIn,
+      style: "single-maid.css" 
     });
   })
     .catch(err => {
