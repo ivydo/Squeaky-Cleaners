@@ -1,44 +1,46 @@
-{{!-- route maid info to here; will follow template from homepage Module 14 on how it lists all posts from all users --}}
-  <div class="dash-container">
-<div class="dash-section">
-  <div class="dash-header">
-    <h2>Dashboard</h2>
-    {{!-- <h3>{{user.username}}</h3>
-  </div> --}}
-  <div class="dash-maid">
-<ul class="maid-list">
-  {{#each maids as |maid|}}
-  <li class="maid-li">
-    {{> maid-info maid }}
-  </li>
-  <li class="maid-li"> 
-    <a href="/maid/{{maid.id}}/schedule">Schedule Cleaning</a>
-  </li>
-  {{/each}}
-</ul>
-  </div>
-</div>
-
-<div class="dash-review-section">
+{{!-- route maid info to here; will follow template from homepage Module 14 on how it lists all posts from all users
+--}}
+<div class="dash-container">
+  <div class="dash-section">
+    <img src="../assets/dashboard.png" alt="woman-ironing" class="dash-banner">
     <div class="dash-header">
-      <h2>My Reviews</h2>
+      {{!-- <h3>{{user.username}}</h3>
+    </div> --}}
+    <div class="dash-maid">
+      <ul class="maid-list">
+        {{#each maids as |maid|}}
+        <li class="maid-li">
+          {{> maid-info maid }}
+        </li>
+        <li class="maid-li">
+          <a href="/maid/{{maid.id}}/schedule">Schedule Cleaning</a>
+        </li>
+        {{/each}}
+      </ul>
     </div>
-{{!-- List reviews left by loggedIn user --}}
-  {{#if reviews.length}}
-    <section class="my-reviews">
-      <ol class="review-li">
-      {{#each reviews as |review|}}
-      <li>
-        {{> reviews review}}
-        <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review</a>
-      </li>
-      {{/each}}
-    </ol>
-  </section>
-  {{/if}}
-</div>
-{{!-- <script src="/javascript/review.js"></script>
-<script src="/javascript/edit-review.js"></script>
-<script src="/javascript/delete-review.js"></script> --}}
-</div>
+  </div>
 
+  <div class="dash-review-section">
+
+    {{!-- List reviews left by loggedIn user --}}
+    {{#if reviews.length}}
+    <section class="my-reviews">
+          <div class="dash-header">
+      <h2 class="my-reviews-h2">My Reviews</h2>
+    </div>
+      <ol class="review-li">
+        {{#each reviews as |review|}}
+        <li>
+          {{> reviews review}}
+          <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit Review</a>
+        </li>
+        {{/each}}
+      </ol>
+    </section>
+    {{/if}}
+  </div>
+  {{!--
+  <script src="/javascript/review.js"></script>
+  <script src="/javascript/edit-review.js"></script>
+  <script src="/javascript/delete-review.js"></script> --}}
+</div>
