@@ -2,6 +2,8 @@
 
 async function reviewFormHandler(event) {
     event.preventDefault();
+
+    const title = document.querySelector('input[name="review-title"]').value.trim();
   
     const review_text = document.querySelector('textarea[name="review-body"]').value.trim();
 
@@ -9,7 +11,6 @@ async function reviewFormHandler(event) {
       window.location.toString().split('/').length - 1
     ];
 
-    const title = document.querySelector('input[name="review-title"]').value.trim();
 
     //const username = document.querySelector('{{username}}').value.trim();
   

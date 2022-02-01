@@ -24,8 +24,8 @@ async function editFormHandler(event) {
         document.location.replace('/dashboard');
     } else {
         alert(response.statusText);
+        // sub alert for res 400
     }
 }
-
 //button to save changes to review
 document.querySelector('.edit-review-form').addEventListener('submit', editFormHandler);

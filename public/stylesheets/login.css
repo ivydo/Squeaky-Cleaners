@@ -13,6 +13,12 @@ hr {
   margin-right: auto;
 }
 
+.login-image-container {
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+}
+
 .btn {
   width: 160px;
   height: 41px;
@@ -27,6 +33,7 @@ hr {
   font-size: 18px;
   letter-spacing: 1px;
   text-align: center;
+  margin-left: 46px;
 }
 
 /* nav section */
@@ -77,52 +84,72 @@ nav {
     flex-direction: column;
     justify-content: left;
     background-color: #ffffff;
-    width: 50%;
     border-radius: 30px;
     padding: 20px 0;
-  
 }
 
 
 .main-container {
   display: flex;
   flex-direction: column;
-align-items: center;}
+align-items: center;
+}
 
 body {
   background-color: rgb(234, 216, 236);
 }
 
 .form-header {
-	color: #f95f9f;
+    padding: 0 30px;
+    margin-top: 200px;
+    margin-right: 80px;
+    margin-bottom: 20px;
+}
+
+.login-header {
+  color: #f95f9f;
+	font-family: "Lato";
+	font-weight: bold;
+	font-size: 50px;
+	line-height: 1;
+	letter-spacing: 2px;
+	text-align: center;
+  margin: 20px 0;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-section {
+  display: flex;
+}
+
+/* signup-section */
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+.sign-up-header {
+  color: #f95f9f;
 	font-family: "Lato";
 	font-weight: bold;
 	font-size: 36px;
 	line-height: 1;
 	letter-spacing: 2px;
 	text-align: center;
-    padding: 30px;
-}
-
-.login-form, .signup-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* signup-section */
-
-.login-section {
-    margin: 20px 0;
-}
-
-.signup-section {
-    margin: 10px 0;
-
+  margin-bottom: 20px;
 }
 
 .signup-check {
-    margin-top: 10px;
+  margin-top: 10px;
 	font-family: "Lato";
 }
 

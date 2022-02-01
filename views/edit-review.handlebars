@@ -2,13 +2,14 @@
     <link rel="stylesheet" href="/../stylesheets/edit-review.css">
 </head>
 <div class="link">
-    <a href="/dashboard"> &larr; Back to dashboard</a>
+    {{!-- <a href="/dashboard"> &larr; Back to dashboard</a> --}}
 
 </div>
 <article>
 
     <form class="edit-review-form">
-        <h2> Edit Review</h2>
+        {{!-- <h2> Edit Review</h2> --}}
+        <img src="/assets/Polish.png" alt="woman-polishing">
 
         <div class="edit-section">
             <span>{{review.title}}</span>
@@ -20,8 +21,9 @@
         </div>
 
         <div>
-            <a href="/review/{{review.id}}">{{review.length}}</a> 
-            <button type="submit" id="save-btn" class="btn">Save Review</button>
+            <a href="/review/{{review.id}}">{{review.length}}</a>
+            <button type="submit" class="btn">Save Review</button>
+
             <button type="button" class="delete-review-btn">Delete Review</button>
         </div>
 
