@@ -3,7 +3,7 @@ async function editFormHandler(event) {
 
     const title = document.querySelector('textarea[name="review-title"]').value.trim();
 
-    const textarea = document.querySelector('textarea[name="review_text"]').value.trim();
+    const review_text = document.querySelector('textarea[name="review_text"]').value.trim();
 
     const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
@@ -13,7 +13,7 @@ async function editFormHandler(event) {
         method: 'PUT',
         body: JSON.stringify({
             title,
-            textarea
+            review_text
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -24,8 +24,8 @@ async function editFormHandler(event) {
         document.location.replace('/dashboard');
     } else {
         alert(response.statusText);
+        // sub alert for res 400
     }
 }
-
 //button to save changes to review
 document.querySelector('.edit-review-form').addEventListener('submit', editFormHandler);
