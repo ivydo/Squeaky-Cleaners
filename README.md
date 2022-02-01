@@ -46,6 +46,11 @@ Clone the repository onto into your system, and then ensure the NPM packages lis
 ## Application Images
 <img src="https://github.com/ivydo/Squeaky-Cleaners/blob/feature/alexis/public/assets/Home%20page.png">
 <img src="https://github.com/ivydo/Squeaky-Cleaners/blob/feature/alexis/public/assets/login-view.png">
+<img src="https://github.com/ivydo/Squeaky-Cleaners/blob/feature/alexis/public/assets/Dashboard%20top.png">
+<img src="https://github.com/ivydo/Squeaky-Cleaners/blob/feature/alexis/public/assets/dashboar%20review.png">
+<img src="https://github.com/ivydo/Squeaky-Cleaners/blob/feature/alexis/public/assets/maid%20review.png">
+<img src="https://github.com/ivydo/Squeaky-Cleaners/blob/feature/alexis/public/assets/edit%20review.png">
+<img src="https://github.com/ivydo/Squeaky-Cleaners/blob/feature/alexis/public/assets/future%20ability.png">
 
 ## Application Link
 For the link to the live application please click: [HERE]()
